@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-plus"></script>
+    <title>Element Plus demo</title>
+</head>
+<body>
+<div id="app">
+    <el-button>{{ message }}</el-button>
+    <el-button type="primary" loading>Loading</el-button>
+    <el-input v-model="input" placeholder="Please input"/>
+
+
+</div>
+<script>
+    const App = {
+        data() {
+            return {
+                message: "Hello Element Plus",
+            };
+        },
+    };
+    const app = Vue.createApp(App);
+    const input = ref('');
+    app.use(ElementPlus);
+    app.mount("#app");
+</script>
+<style scoped>
+    .el-button .custom-loading .circular {
+        margin-right: 6px;
+        width: 18px;
+        height: 18px;
+        animation: loading-rotate 2s linear infinite;
+    }
+
+    .el-button .custom-loading .circular .path {
+        animation: loading-dash 1.5s ease-in-out infinite;
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: 0;
+        stroke-width: 2;
+        stroke: var(--el-button-text-color);
+        stroke-linecap: round;
+    }
+</style>
+</body>
+</html>
